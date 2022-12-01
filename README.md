@@ -11,7 +11,7 @@ $\kappa$ や $\sigma$ が小さすぎると、vicinity が考慮されなくな�
 $\hat{p}_{g}^{\mathrm{HVE}} (\bold{x}, y)$ の第 2 項がカバーする値域を
 以下のように可視化します。
 
-<img src=https://raw.githubusercontent.com/inoueakimitsu/tunehve/master/images/demo.png width=50.0% />
+<img src=https://raw.githubusercontent.com/inoueakimitsu/tunehve/main/images/demo.png width=50.0% />
 
 これにより、$\kappa$, $\sigma$ の設定指針を得ることができます。
 
