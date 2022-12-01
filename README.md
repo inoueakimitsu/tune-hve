@@ -1,28 +1,30 @@
 # tune-hve
+
 Hard Vicinal Estimates Hyperparameter Tuning Tool
 
-## 概要
 
-CcGAN における $\hat{p}_{g}^{\mathrm{HVE}} (\bold{x}, y)$ は、
-$\kappa$ と $\sigma$ の設定値に強く影響を受けます。
-$\kappa$ や $\sigma$ が小さすぎると、vicinity が考慮されなくなります。
+<img src=https://raw.githubusercontent.com/inoueakimitsu/tune-hve/main/images/demo.png width=50.0% />
 
-このツールは、$y^r$ と $\kappa$ と $\sigma$ を所与としたときの、
-$\hat{p}_{g}^{\mathrm{HVE}} (\bold{x}, y)$ の第 2 項がカバーする値域を
-以下のように可視化します。
+## Summary
 
-<img src=https://raw.githubusercontent.com/inoueakimitsu/tunehve/main/images/demo.png width=50.0% />
+The $\hat{p}_{g}^{\mathrm{HVE}} (\bold{x}, y)$ in CcGAN is
+influenced by the settings of $\kappa$ and $\sigma$.
+If $\kappa$ or $\sigma$ are too small, the vicinity is not taken into account.
 
-これにより、$\kappa$, $\sigma$ の設定指針を得ることができます。
+Given $y^r$, $\kappa$, and $\sigma$,
+this tool visualize the range covered by the the second term of
+$\hat{p}_{g}^{\mathrm{HVE}} (\bold{x}, y)$.
 
-## アプローチ
+This gives the setting guidelines for $\kappa$ and $\sigma$.
 
-real データのラベルの経験分布に対して、
-バンド幅 $\sigma$ のガウス カーネルを畳み込み、
-さらにバンド幅 $\kappa$ のボックス カーネルを畳み込むことで、
-real データのラベルのカバーしている範囲を可視化します。
+## Approach
 
-## 使用方法
+For the empirical distribution of labels on real data, we do the following:
+- First, convolve a Gaussian kernel with bandwidth $\sigma$.
+- Next, we convolve a box kernel with bandwidth $\kappa$.
+- This visualizes the range covered by the labels in the real data.
+
+## Usage
 
 ```
 usage: tunehve [-h] [--max MAX] [--min MIN] [--kappa KAPPA] [--sigma SIGMA] data output
@@ -41,7 +43,7 @@ optional arguments:
   --sigma SIGMA  sigma
 ```
 
-以下は擬似的な年齢ラベルに対して実行した例です。
+The following commands can be run to check the behavior for unbalanced age data.
 
 ```bash
 python tunehve/hve.py testdata/y1.csv out.png --min 0 --max 90 --kappa 2 --sigma 0.3
@@ -50,3 +52,7 @@ python tunehve/hve.py testdata/y1.csv out.png --min 0 --max 90 --kappa 2 --sigma
 ## License
 
 tune-hve is available under the MIT License.
+
+## Reference
+
+1. Ding, Xin, et al. "CcGAN: continuous conditional generative adversarial networks for image generation." International Conference on Learning Representations. 2020.
