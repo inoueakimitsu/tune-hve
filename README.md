@@ -7,13 +7,13 @@ Hard Vicinal Estimates Hyperparameter Tuning Tool
 
 ## Summary
 
-The $\hat{p}_{g}^{\mathrm{HVE}} (\bold{x}, y)$ in CcGAN is
+The $\hat{p}_{g}^{\mathrm{HVE}} (\boldsymbol{x}, y)$ in CcGAN is
 influenced by the settings of $\kappa$ and $\sigma$.
 If $\kappa$ or $\sigma$ are too small, the vicinity is not taken into account.
 
 Given $y^r$, $\kappa$, and $\sigma$,
 this tool visualize the range covered by the the second term of
-$\hat{p}_{g}^{\mathrm{HVE}} (\bold{x}, y)$.
+$\hat{p}_{g}^{\mathrm{HVE}} (\boldsymbol{x}, y)$.
 
 This gives the setting guidelines for $\kappa$ and $\sigma$.
 
